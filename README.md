@@ -23,3 +23,4 @@
 - As an event coordinator, I want to be able to create multi day events.
 - As an event coordinator, I want to be able to create an event with as few clicks as possible.
 - As an event coordinator, I want to be notified when someone registers for an event.
+- As an event coordinator, I want to view statistics from my event.
