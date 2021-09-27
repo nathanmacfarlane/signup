@@ -5,10 +5,14 @@
 - Cheaper price point (free model with paid plans)
 - Cleaner more efficient user experience
 
+--
+
 ## Competitors
 - [Signup Genius](https://www.signupgenius.com/)
 - [Signup.com](https://www.signup.com/)
 - [Volunteer Logistcs](https://www.volgistics.com/)
+
+--
 
 ## User Stories
 - As a volunteer, I want to be able to easily register for an event.
@@ -25,6 +29,8 @@
 - As an event coordinator, I want to be notified when someone registers for an event.
 - As an event coordinator, I want to view statistics from my event.
 
+--
+
 ## Free Model
 - Google Ads
 - 1 board
@@ -40,3 +46,16 @@
 - Unlimited admins
 - Public and Private boards
 - Notifications (Email and Text)
+
+--
+
+## (Freemium) Admin Workflow
+
+--
+
+### Create New Board
+1. Click "+" Button
+2. Fill out form (title, description, type)
+3. Fill out requests (ie. just # of attendees, attendees with roles, tasks, time slots)
+4. Configure notification settings
+5. Review and Submit Board
