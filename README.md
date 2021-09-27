@@ -24,3 +24,19 @@
 - As an event coordinator, I want to be able to create an event with as few clicks as possible.
 - As an event coordinator, I want to be notified when someone registers for an event.
 - As an event coordinator, I want to view statistics from my event.
+
+## Free Model
+- Google Ads
+- 1 board
+- 1 admin
+- Public boards only (restrict signups to whitelisted emails?)
+- Admin Portal
+- Chat
+- Notifications (Email)
+
+## Paid Model
+- Ad free
+- Unlimited boards
+- Unlimited admins
+- Public and Private boards
+- Notifications (Email and Text)
