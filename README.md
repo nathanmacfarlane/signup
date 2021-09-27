@@ -56,10 +56,10 @@
 
 ## (Freemium) Volunteer Workflow
 
-## Signup for an Event
+### Signup for an Event
 1. Land on board page (through email invite, QR code, etc)
 2. Select time slot(s) or item(s)
 3. Submit selection
-4. Fill out name/email/phone
+4. Fill out name/email/phone and notification settings
 5. Review and Submit
 6. Confirm signup by clicking link in email otherwise the signup will be dismissed in 10 minutes
