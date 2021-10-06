@@ -1,16 +1,19 @@
 # Sign Up Project Readme
 
 ## Selling Points
+
 - Easy/Simple Demo
 - Cheaper price point (free model with paid plans)
 - Cleaner more efficient user experience
 
 ## Competitors
+
 - [Signup Genius](https://www.signupgenius.com/)
 - [Signup.com](https://www.signup.com/)
 - [Volunteer Logistcs](https://www.volgistics.com/)
 
 ## User Stories
+
 - As a volunteer, I want to be able to easily register for an event.
 - As a volunteer, I want to be able to easily register for a task.
 - As a volunteer, I want to be able to un-register.
@@ -26,6 +29,7 @@
 - As an event coordinator, I want to view statistics from my event.
 
 ## Free Model
+
 - Google Ads
 - 1 board
 - 1 admin
@@ -35,6 +39,7 @@
 - Notifications (Email)
 
 ## Paid Model
+
 - Ad free
 - Unlimited boards
 - Unlimited admins
@@ -44,6 +49,7 @@
 ## (Freemium) Admin Workflow
 
 ### Create New Board
+
 1. Click "+" Button
 2. Fill out form (title, description, type)
 3. Fill out requests (ie. just # of attendees, attendees with roles, tasks, time slots)
@@ -51,12 +57,14 @@
 5. Review and Submit Board
 
 ### View Board Statistics
+
 1. Click "Boards" Button
 2. Select a Board
 
 ## (Freemium) Volunteer Workflow
 
 ### Signup for an Event
+
 1. Land on board page (through email invite, QR code, etc)
 2. Select time slot(s) or item(s)
 3. Submit selection
