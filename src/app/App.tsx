@@ -8,7 +8,6 @@ import { CreateSignUp } from '../create-sign-up/CreateSignUp';
 import { MySignUps } from '../my-sign-ups/MySignUps';
 import { Chat } from '../chat/Chat';
 import { ViewSignup } from '../view-signup/ViewSignup';
-import { Wizard } from '../components/Wizard';
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;

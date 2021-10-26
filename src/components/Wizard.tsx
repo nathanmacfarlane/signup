@@ -2,6 +2,7 @@ import { Grid, makeStyles, Paper } from '@material-ui/core';
 import { Steps, Button } from 'antd';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useKeypress } from '../hooks/useKeypress';
 
 const { Step } = Steps;
 
@@ -57,6 +58,8 @@ export const Wizard = ({ doneButton, steps }: Props) => {
 
   const prev = () => setCurrent(current - 1)
 
+  useKeypress(13, next)
+
   return (
     <>
       <Grid container>
@@ -74,7 +77,7 @@ export const Wizard = ({ doneButton, steps }: Props) => {
                 const content = step.content();
                 const isVisible = i === current;
                 return (
-                  <form style={{ display: isVisible ? "block" : "none" }} key={step.title} className={classes.root}>
+                  <form style={{ display: isVisible ? "block" : "none" }} key={step.title} onSubmit={form.handleSubmit(onSubmit)} className={classes.root}>
                     <span>{content({ form, isVisible })}</span>
                   </form>
                 )
