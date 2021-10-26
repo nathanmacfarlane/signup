@@ -16,3 +16,7 @@
   right: 2%;
   transform: translateY(-50%);
 }
+
+.ant-pro-table .ant-card-body {
+  padding: 0px !important;
+}

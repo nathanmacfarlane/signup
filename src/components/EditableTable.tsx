@@ -1,103 +1,55 @@
 import React, { useState } from 'react';
-import { Table, Input, InputNumber, Form } from 'antd';
+import type { ProColumns } from '@ant-design/pro-table';
+import { EditableProTable } from '@ant-design/pro-table';
+import { Button } from 'antd';
 
-interface Item {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const originData: Item[] = [];
-for (let i = 0; i < 5; i++) {
-  originData.push({
-    key: i.toString(),
-    name: `Edrward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
-interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
-  title: any;
-  inputType: 'number' | 'text';
-}
-
-const EditableCell: React.FC<EditableCellProps> = ({
-  title,
-  inputType,
-}) => {
-  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
-
-  return (
-    <td>
-      <Form.Item
-        name={title}
-        style={{ margin: 0 }}
-        rules={[
-          {
-            required: true,
-            message: `Please Input ${title}!`,
-          },
-        ]}
-      >
-        {inputNode}
-      </Form.Item>
-    </td>
-  );
-};
-
-interface EditableTableProps {
+interface Props {
   rows?: any[],
-  columns?: any[]
+  addNewText?: string,
+  columns: ProColumns<any>[]
 }
 
-export const EditableTable = ({ rows }: EditableTableProps) => {
-  const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+export const EditableTable = ({ addNewText, rows, columns: userColumns }: Props) => {
+  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
+  const [dataSource, setDataSource] = useState<any[]>([]);
 
-  const columns = [
-    {
-      title: 'name',
-      width: '25%',
-      editable: true,
-    },
-    {
-      title: 'age',
-      width: '15%',
-      editable: true,
-    },
-    {
-      title: 'address',
-      width: '40%',
-      editable: true,
-    }
-  ];
+  const finalColumn: ProColumns<any> = {
+    title: 'Option',
+    valueType: 'option',
+    width: 200,
+    render: (text, record, _, action) => [
+      <Button style={{ padding: 0 }} type="link" key="editable" onClick={() => { action?.startEditable?.(record.id) }}>Edit</Button>,
+      <Button style={{ padding: 0 }} type="link" key="delete" onClick={() => { setDataSource(dataSource.filter((item) => item.id !== record.id)) }}>Delete</Button>,
+    ],
+  }
 
-  const mergedColumns = columns.map(col => {
-    return {
-      ...col,
-      onCell: (record: Item) => ({
-        record,
-        inputType: 'text',
-        title: col.title,
-        editing: true,
-      }),
-    };
-  });
+  const columns = [...userColumns, finalColumn];
 
   return (
-    <Form form={form} component={false}>
-      <Table
-        components={{
-          body: {
-            cell: EditableCell,
-          },
+    <>
+      <EditableProTable<any>
+        rowKey="id"
+        recordCreatorProps={{
+          creatorButtonText: addNewText || "Add New Row",
+          position: 'bottom',
+          record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
         }}
-        bordered
-        dataSource={data}
-        columns={mergedColumns}
-        rowClassName="editable-row"
+        columns={columns}
+        request={async () => ({
+          data: rows,
+          total: 10,
+          success: true,
+        })}
+        value={dataSource}
+        onChange={setDataSource}
+        editable={{
+          onlyAddOneLineAlertMessage: <>You can only add one new row at a time.</>,
+          type: "multiple",
+          actionRender: (row, config, dom) => [dom.save, dom.cancel],
+          editableKeys,
+          onChange: setEditableRowKeys,
+        }}
       />
-    </Form>
+    </>
   );
 };

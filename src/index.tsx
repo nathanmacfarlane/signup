@@ -6,10 +6,14 @@ import 'antd/dist/antd.css';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
+import { ConfigProvider } from 'antd';
+import enUS from 'antd/lib/locale/en_US';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <ConfigProvider locale={enUS}>
+      <App />
+    </ConfigProvider>
   </Router>,
   document.getElementById('root')
 );
